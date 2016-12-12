@@ -263,8 +263,8 @@ creation.
 
 ### **Backup-initiator-role**
 
-> Create a new “service role” for AWS Lambda from [Management
-> Console](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console)
+ Create a new “service role” for AWS Lambda from [Management
+ Console](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console)
 
 [AWSLambdaFullAccess](https://console.aws.amazon.com/iam/home?region=us-west-2#policies/arn:aws:iam::aws:policy/AWSLambdaFullAccess)
 policy is attached to this role.
