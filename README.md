@@ -116,7 +116,7 @@ Build a new IAM policy as follows:
 Attach this role to **ebs-snapshot-lambda** and **ami-image-lambda**
 function at the time of creation.
 
-1)  ### **Cloudwatch-log-role**
+ ### **Cloudwatch-log-role**
 
     Create a new “service role” for AWS Lambda from [Management
     Console](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console)
