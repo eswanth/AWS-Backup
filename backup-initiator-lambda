@@ -1,0 +1,20 @@
+import boto3
+import time
+
+
+def lambda_handler(event, context):
+    client = boto3.client('lambda')
+    
+    ami_response = client.invoke(
+        FunctionName='ami-image-lambda'
+    )
+    
+    ebs_snap_response = client.invoke(
+        FunctionName='ebs-snapshot-lambda'
+    )
+    
+    if ami_response['StatusCode'] == 200 and ebs_snap_response['StatusCode'] == 200 :
+        time.sleep(120)
+        client.invoke(
+            FunctionName='store-logs'
+        )
