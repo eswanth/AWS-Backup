@@ -20,8 +20,8 @@ def lambda_handler(event, context):
     s3.meta.client.download_file(bucket, key , download_path)
     msg = MIMEMultipart()
     msg['Subject'] = 'Daily Backup Report'
-    msg['From'] = 'abhi_632@rediffmail.com'
-    msg['To'] = 'abhishek.jain.150492@gmail.com'
+    msg['From'] = 'sender@domain'
+    msg['To'] = 'receiver@domain'
     
     # what a recipient sees if they don't use an email reader
     msg.preamble = 'Multipart message.\n'
