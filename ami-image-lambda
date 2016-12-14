@@ -39,7 +39,7 @@ def lambda_handler(event, context):
                 if t['Key'] == 'AMI_Retention'][0]
         except IndexError:
             retention_days = 7
-    for instance in instances:
+            
         _BlockDeviceMappings=[]
         for blk in instance['BlockDeviceMappings']:
             _BlockDeviceMappings.append({
@@ -62,7 +62,9 @@ def lambda_handler(event, context):
         )
         
         logger.info("AMI created successfully")
-        logger.info("Instance-id="+instance['InstanceId']+" Image-id="+response['ImageId'])
+        temp_delete_date = datetime.date.today() + datetime.timedelta(days=retention_days)
+        temp_delete_fmt = temp_delete_date.strftime('%Y-%m-%d')
+        logger.info("Instance-id="+instance['InstanceId']+" Image-id="+response['ImageId']+" Deletion Date="+temp_delete_fmt)
         to_tag[retention_days].append(response['ImageId'])
         
     for retention_days in to_tag.keys():
