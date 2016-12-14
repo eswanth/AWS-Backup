@@ -38,9 +38,9 @@ def lambda_handler(event, context):
     # connect to SES
     ses_client=boto3.client('ses')
     response = ses_client.send_raw_email(
-    Source='abhi_632@rediffmail.com',
+    Source='sender@domain',
     Destinations=[
-        'abhishek.jain.150492@gmail.com',
+        'receiver1@domain','receiver2@domain'
     ],
     RawMessage={
         'Data': msg.as_string()
